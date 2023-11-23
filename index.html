@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bacag Online Appointment System</title>
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    section {
+      min-height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(barangay.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff; 
+    }
+    nav {
+    color: #fff;
+    padding: 1em 20px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+    h3 {
+      margin: 0;
+      line-height: 1.5; 
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    ul li {
+      margin-right: 20px;
+    }
+    ul li:last-child {
+      margin-right: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+    a.active {
+      font-weight: bold;
+    }
+    nav ul li a {
+      background-color: transparent;
+      border-radius: 5px;
+      padding: 7px 8px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: green;
+    }
+    nav ul li .active {
+      background-color: rgb(255, 166, 0);
+    }
+    .login-btn {
+      background-color: rgb(76, 76, 255); 
+      color: #fff;
+      border-radius: 5px;
+      padding: 7px 15px;
+      text-decoration: none;
+    }
+    .login-btn:hover {
+      background-color: darkblue; 
+    }
+    .article {
+      width: 50%;
+      margin: auto;
+      text-align: center;
+      transform: translateY(25vh);
+    }
+    .article h1 {
+      font-size: 40px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .article p {
+      font-size: 18px;
+      color: #7e7e7e;
+      line-height: 1.5;
+      margin-bottom: 50px;
+    }
+    .article .btn {
+      padding: 12px 25px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      background-color: #f15048;
+    }
+    .article .btn:hover {
+      background-color: rgb(76, 76, 255);
+      transition: 0.5s ease;
+    }
+    section nav img {
+    width: 100px;
+    float: left;
+    margin-top: -20px;
+    }
+    section nav h3{
+        color: #fff;
+        letter-spacing: 0;
+    }
+    footer {
+        text-align: center;
+        font-size: small;
+        float: right;
+    }
+    .icon{
+        width: 20px;
+    }
+    .sibdiv {
+        background-size: cover;
+    }
+    .sibdiv h1 {
+        color: #fff;
+        text-align: center;
+        font-size: 2em; 
+    }
+    .sibdiv h2 {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.4em;
+    }
+    .sibdiv h5 {
+        color: #7e7e7e;
+        text-align: center;
+        font-size: 1.2em; 
+    }
+    .sibdiv ul {
+        list-style: none; 
+        padding: 0;
+        font-size: 1.3em;
+    }
+    .sibdiv ul li {
+        color: white;
+        list-style: inside; 
+        text-align: center;
+        font-size: 1em; 
+    }
+    body {
+        background-color: #333; 
+        color: #fff; 
+        font-family: Arial, sans-serif;
+    }
+    .form {
+        color: #fff;
+        text-align: center;
+        font-size: 2em; 
+    }
+    fieldset {
+        border: 1px solid #fff; 
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 400px;
+    }
+    legend {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 8px;
+    }
+    input[type="text"],
+    input[type="date"],
+    select {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        background-color: #555; 
+        color: #fff;
+    }
+    input[type="submit"] {
+        background-color: #f15048; 
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049; 
+    }
+    .center-button {
+        text-align: center;
+    }
+    .streets h1{
+        color: #fff;
+        text-align: center;
+        font-size: 1.4em;
+        text-transform: uppercase;
+    }
+    .streets ul{
+        color: #fff;
+        list-style: inside;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    .streets h5 {
+        color: #7e7e7e;
+        text-align: center;
+        font-size: 1.2em; 
+    }
+    .main-content {
+        padding: 20px;
+    }
+
+    .officials-row {
+        display: flex;
+        justify-content: center;
+    }
+    .officials-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .officials-list li {
+        width: 200px;
+        margin: 20px;
+        text-align: center;
+    }
+    .officials-list img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    #about {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #about h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    #about p {
+        font-size: 1.4em;
+    }
+    #about ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    #about li {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+    #about a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #about a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand d-flex align-items-start" href="#">
+          <img src="logo.png" alt="logo" class="logo">
+          <h3 class="ml-2">Republic of the Philippines <br> BARANGAY BACAG <br> City of Villasis</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a class="nav-link text-white" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#sibdiv">Services</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#streets">Streets</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#official">Officials</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#about">About Us</a></li>
+            <li class="nav-item"><a href="#login" class="btn btn-primary login-btn">Log In</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="article">
+        <h1>Welcome to Barangay Bacag!</h1>
+        <p>
+          Bacag is a barangay in the municipality of Villasis, in the province of Pangasinan. Its population as determined by the 2020 Census was 6,093. This represented 9.37% of the total population of Villasis.
+        </p>
+        <a href="#form" class="btn btn-primary">Schedule an Appointment</a>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="py-5 bg-light">
+    <div class="container" id="login">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-4 text-center">Create an Account</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Mia Charife M. Obejo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 align-items-center">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </section>
+
+    <!--Main-->
+    <section>
+        <div class="sibdiv text-center" id="sibdiv"> <br><br><br>
+          <h1>BARANGAY BACAG ONLINE APPOINTMENT</h1><br><br>
+          <h2 class="offer">Services</h2><br>
+          <h5>Here are our online appointment services offered</h5>
+          <br>
+          <ul class="d-flex flex-column align-items-center">
+            <li>Certificate of Indigency</li>
+            <li>Barangay Clearance</li>
+          </ul>
+        </div>
+        <br><br>
+        <div class="streets text-center" id="streets"> <br><br><br><br>
+            <h1 class="offer">Streets</h1><br>
+            <h5>Here are the streets of barangay bacag</h5><br>
+            <ul class="d-flex flex-column align-items-center">
+                <li>Bacag North</li>
+                <li>Bacag West</li>
+                <li>Bacag East</li>
+                <li>Bacag Sur</li>
+            </ul>
+        </div>
+        <br><br><br>
+    </section>
+        <hr>
+    <section><br><br>
+      <div class="form" id="form">
+        <h1>Schedule an Appointment</h1>
+      </div>
+      <br><br><br><br><br>
+      <fieldset>
+        <legend>Online appointment form</legend>
+        <form class="box" action="example.php" method="post" onsubmit="showConfirmation(event)">
+            <div>
+                <label for="name" class="title">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="contactNumber">Contact Number:</label>
+                <input type="text" name="contactNumber">
+            </div>
+            <div>
+                <label for="purpose">Appointment Purpose:</label>
+                <select id="purpose" name="purpose" required>
+                    <option value="certificate">Certificate of Indigency</option>
+                    <option value="barangay">Barangay Clearance</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div>
+                <label for="username">Date:</label>
+                <input type="date" name="depart">
+            </div>
+            <div class="center-button">
+              <input type="submit" value="Register" id="submit">
+          </div>
+        </form>
+      </fieldset><br><br><br><br>
+    </section>
+      <hr>
+    <section class="main-content">
+          <div class="officials-row">
+              <ul class="officials-list">
+                  <li class="chairman">
+                      <img src="male.png" alt="Chairman">
+                      <h3>Punong Barangay</h3>
+                      <p>Padilla, Raul O.</p>
+                  </li>
+              </ul>
+          </div>
+          <div class="officials-row" id="official">
+            <ul class="officials-list">
+                <li>
+                    <img src="female.png" alt="Official 2">
+                    <h3>Kagawad</h3>
+                    <p>Padilla, Basilisa M.</p>
+                </li>
+                <li>
+                    <img src="male.png" alt="Official 3">
+                    <h3>Kagawad</h3>
+                    <p>Mortera, Bongbong M.</p>
+                </li>
+                <li>
+                    <img src="male.png" alt="Official 4">
+                    <h3>Kagawad</h3>
+                    <p>Lucena, Aresto S.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="officials-row">
+            <ul class="officials-list">
+                <li>
+                    <img src="male.png" alt="Official 5">
+                    <h3>Kagawad</h3>
+                    <p>Dingle, Gervacio R.</p>
+                </li>
+                <li>
+                    <img src="male.png" alt="Official 6">
+                    <h3>Kagawad</h3>
+                    <p>Lopez, Alexander O.</p>
+                </li>
+                <li>
+                    <img src="male.png" alt="Official 7">
+                    <h3>Kagawad</h3>
+                    <p>Cruz, Larry M.</p>
+                </li>
+                <li>
+                    <img src="male.png" alt="Official 7">
+                    <h3>Kagawad</h3>
+                    <p>Labiste, Manolo S.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+      <hr><br>
+    <!-- About Us Section -->
+    <section id="about" class="about"><br><br>
+      <h2>About Us</h2><br><br>
+      <p>
+          Welcome to the official website of Barangay Bacag. <br>We are dedicated to serving our community.
+      </p>
+      <br>
+      <p>
+          How to connect with us?<br><br>
+          At Barangay Bacag, we value open communication and connection with our community. <br> Whether you have inquiries, concerns, or just want to reach out, we are here for you. <br> You can connect with us through various channels: <br>
+          <ul class="d-flex flex-column align-items-center">
+              <li><img class="icon" src="call.png" alt="Phone Icon"> Phone: <a href="tel:+639476497380">+639476497380</a></li><br>
+              <li><img class="icon" src="location.png" alt="Location Icon"> Location: <a href="https://maps.google.com">
+                Barangay Bacag, Villasis, Pangasinan, Philippines</a></li><br>
+              <li><img class="icon" src="email.png" alt="Email Icon"> Email: <a href="mailto:info@barangaybacag.com">@barangaybacagofficial.com</a></li><br>
+          </ul>
+      </p>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <hr />
+      <p>
+        Copyright &copy; 2023 Official Website of Barangay Bacag
+        <img class="icon" src="logo.png" alt="logo" />
+        <img class="icon" src="villasis.png" alt="villasis" />
+        <img class="icon" src="sk.png" alt="sk" />
+      </p>
+    </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
